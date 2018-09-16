@@ -11,8 +11,8 @@ camera = PiCamera()
 camera.resolution = (240,240)
 s = socket.socket()
 port = 12553
-s.settimeout(8)
-modulusBoi = 12
+s.settimeout(20)
+modulusBoi = 16
 
 check = True
 while(True):
@@ -22,9 +22,9 @@ while(True):
 time.sleep(0.1)
 while (check):
   timeS = int(str(datetime.datetime.now())[21:24])
-  print((timeS))
+  #print((timeS))
   timeB = int(str(datetime.datetime.now())[17:19]) 
-  print(timeB)
+  #print(timeB)
   if (timeS == 0 and timeB % modulusBoi == 0):
       check = False
       print('breaking')
