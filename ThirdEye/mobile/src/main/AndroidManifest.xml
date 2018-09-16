@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="resess.iclicker.thirdeye">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.snapchat.kit.sdk.clientId"
+            android:value="b7dfcf18-eff5-446c-aa02-893eee564c75" />
+        <meta-data
+            android:name="com.snapchat.kit.sdk.redirectUrl"
+            android:value="myapp://snap-kit/oauth2" />
+        <meta-data
+            android:name="com.snapchat.kit.sdk.scopes"
+            android:resource="@array/snap_connect_scopes" /> <!-- This should be a string array of scopes ! -->
+
+        <activity android:name=".SnapLoginAct">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="snap-kit"
+                    android:path="/oauth2"
+                    android:scheme="myapp" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".EntryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MapandTrack"></activity>
+    </application>
+
+</manifest>
