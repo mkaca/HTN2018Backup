@@ -17,7 +17,6 @@ imgData = (numpy.array(imgData))
 print (imgData)
 print(numpy.shape(imgData))
 
-
 s = socket.socket()
 port = 12452
 s.settimeout(8)
@@ -28,7 +27,14 @@ bufferFlex = numpy.frombuffer(strImgData, dtype = numpy.uint8, count = -1)
 print(numpy.shape(bufferFlex))
 print(" ")
 print("done connecting")
-s.sendall(strImgData)
+
+bytesSend = 0
+while bytesSend < (240*240*3):
+  sent  = s.send(strImgData[bytesSend:])
+  if sent == 0:
+    raise RuntimeError("socket connection broken")
+  bytesSend = bytesSend + sent
+  print(bytesSend)
 
 print(s.recv(2048))
 s.close
