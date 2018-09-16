@@ -8,7 +8,7 @@ import numpy
 import json
 
 lCamActive = True
-rCamActive = True
+rCamActive = False
 
 leftCameraSocket = socket.socket()
 leftCameraSocket.settimeout(40)
@@ -96,8 +96,10 @@ rightCameraSocket.close()
 
 if lCamActive:
 	cv2.imshow('testL',fromBufferL)
+	cv2.imwrite('testL.png',fromBufferL)
 if rCamActive:
 	cv2.imshow('testR',fromBufferR)
+	cv2.imwrite('testR.png',fromBufferR)
 cv2.waitKey(0)
 
 
