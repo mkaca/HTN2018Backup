@@ -4,13 +4,14 @@ import time
 import socket
 from PIL import Image
 import numpy
+import datetime
 
 print("starting code")
 camera = PiCamera()
 camera.resolution = (240,240)
 s = socket.socket()
-port = 12452
-s.settimeout(8)
+port = 12450
+s.settimeout(20)
 modulusBoi  = 12
 
 check = True
@@ -18,13 +19,15 @@ while(True):
   if (int(str(datetime.datetime.now())[17:19]) % modulusBoi == 0):
     print ("starting timeCheck")
     break
-time.sleep(0.1)
+time.sleep(1.1)
 while (check):
   timeS = int(str(datetime.datetime.now())[21:24])
-  print((timeS))
+  #print((timeS))
   timeB = int(str(datetime.datetime.now())[17:19]) 
-  print(timeB)
+  #print(timeB)
   if (timeS == 0 and timeB % modulusBoi == 0):
+      print(modulusBoi)
+      print(timeS)
       check = False
       print('breaking')
 

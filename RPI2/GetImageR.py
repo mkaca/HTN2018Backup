@@ -19,7 +19,7 @@ while(True):
   if (int(str(datetime.datetime.now())[17:19]) % modulusBoi == 0):
     print ("starting timeCheck")
     break
-time.sleep(0.1)
+time.sleep(1.1)
 while (check):
   timeS = int(str(datetime.datetime.now())[21:24])
   #print((timeS))
