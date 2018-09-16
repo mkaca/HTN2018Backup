@@ -12,7 +12,7 @@ camera.resolution = (240,240)
 s = socket.socket()
 port = 12553
 s.settimeout(20)
-modulusBoi = 16
+modulusBoi = 8
 
 check = True
 while(True):
